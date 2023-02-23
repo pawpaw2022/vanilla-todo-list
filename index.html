@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,20 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-do List</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="content">
-      <div class="content-header">
-        <h1>Pawpaw's to-do list</h1>
-      </div>
-
-      <div class="content-form">
-        <form>
-          <input class="content-form-input" type="text" placeholder="What should I do next..." />
-          <button class="content-form-btn" id="add-btn">add</button>
-        </form>
-      </div>
-    </div>
+    <h1>Pawpaw's to-do list</h1>
+    <form>
+      <input id="input" type="text" placeholder="What to do next..." />
+      <button type="button" onclick="addItem()">add</button>
+    </form>
+    <ul id="list"></ul>
   </body>
 </html>
