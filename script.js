@@ -1,5 +1,23 @@
 /** @format */
 
+// press Enter to focus the input field
+document.addEventListener("keypress", (e) => {
+  if(e.key == "Enter"){
+    e.preventDefault();
+    document.getElementById('input').focus();
+  }
+})
+
+// while in the input field, press Enter to add new todo
+const input = document.getElementById("input"); 
+input.addEventListener("keypress", (e) => {
+  if(e.key == "Enter"){
+    e.preventDefault();
+    document.getElementById('addBtn').click();
+  }
+})
+
+
 const addItem = () => {
   const value = document.getElementById("input").value;
 
