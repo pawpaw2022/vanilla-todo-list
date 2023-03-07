@@ -7,15 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-do List</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Pawpaw's to-do list</h1>
-    <form>
-      <input id="input" type="text" placeholder="What to do next..." />
-      <button type="button" onclick="addItem()">add</button>
-    </form>
-    <ul id="list"></ul>
+    <h1 class="title">Pawpaw's to-do list</h1>
+    <div class="to-do">
+      <form class="input-form">
+        <input id="input" type="text" placeholder="What to do next..." />
+        <button class="btn" type="button" onclick="addItem()">add</button>
+      </form>
+      <ul id="list" class="to-do-list"></ul>
+    </div>
   </body>
 </html>

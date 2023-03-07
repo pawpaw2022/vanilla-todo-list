@@ -3,8 +3,9 @@
 const addItem = () => {
   const value = document.getElementById("input").value;
 
-  if (!value) {
+  if (!value.trim(" ")) {
     alert("Please add something.");
+    document.getElementById("input").value = "";
     return;
   }
 
@@ -18,26 +19,24 @@ const createNewItem = (value) => {
   const item = document.createElement("li");
 
   // Assign unique id
-  const uniqId = "id" + new Date().getTime();
+  const uniqId = `${value}-` + new Date().getTime();
   item.setAttribute("id", uniqId);
   item.setAttribute("class", "item");
   item.innerText = value;
 
-  const delBtn = document.createElement("img");
 
-  delBtn.setAttribute("src", "/assets/close.svg");
-  delBtn.setAttribute("class", "del-btn");
-  delBtn.setAttribute("onclick", `deleteItem(${uniqId})`);
+  const delBtn = document.createElement("div");
+  delBtn.setAttribute("class", "cross");
+  delBtn.onclick = () => {
+    item.remove();
+  }
+  
   item.append(delBtn);
-
   list.append(item);
 };
 
-const deleteItem = (id) => {
-  id.remove();
-};
 
 // for css purpose:
-createNewItem("test1");
-createNewItem("test2");
-createNewItem("test3");
+createNewItem("Grocery Shopping");
+createNewItem("Wash Car");
+createNewItem("go To Gym");
