@@ -138,5 +138,5 @@ const getAngle = (mx, my, ax, ay) => {
 
 // for css purpose:
 createNewItem("Grocery Shopping");
-createNewItem("Wash Car");
-createNewItem("go To Gym");
+createNewItem("Wash da Car");
+createNewItem("go To da Gym");
