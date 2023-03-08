@@ -22,6 +22,7 @@ $secondary-color: rgb(160, 140, 220);
     margin: $margin;
     border-radius: 5px;
     border: $border-thickness solid #000;
+    box-shadow: 2px 3px 5px #5a5959;
 }
 
 @mixin bg-color-hover-transition() {
@@ -39,97 +40,162 @@ body {
     @include item-center(column);
     min-height: 100vh;
     width: 100vw;
+}
+.main {
+    @include item-center(column);
+    margin: 1rem 2rem;
+}
 
-    .title {
-        text-transform: uppercase;
-        @include scale-on-hover();
+.anchor {
+    position: relative;
+    #simpson {
+        width: 300px;
     }
 
-    .to-do {
-        width: 500px;
-        margin: 0 auto;
+    .left-eye{
+        width: 29px;
+        height: 29px;
+        // background-color: #d7cb70;
+        border-radius: 50%;
+        // transform: rotate(45deg);
+    }
+    .right-eye {
+        width: 32px;
+        height: 32px;
+        // background-color: #d7cb70;
+        border-radius: 50%;
+    }
 
-        .input-form {
-            input[type="text"] {
-                width: 80%;
-                @include box-style(0.7rem 1rem, 0 0.3rem);
+    .left-eye {
+        position: absolute;
+        top: 85px;
+        left: 48px;
+    }
+
+    .right-eye {
+        position: absolute;
+        top: 87px;
+        left: 80px;
+    }
+
+    .left-eyeball,
+    .right-eyeball {
+        width: 7px;
+        height: 7px;
+        background-color: #000;
+        border-radius: 50%;
+    }
+
+    .left-eyeball{
+        position: absolute;
+        top: 10px;
+        left: 2px;
+    }
+    .right-eyeball{
+        position: absolute;
+        top: 13px;
+        left: 2px;
+    }
+}
+
+.title {
+    text-transform: uppercase;
+    @include scale-on-hover();
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        @include item-center(row);
+    }
+
+    .main {
+        margin-left: 1rem;
+    }
+}
+
+.to-do {
+    width: 500px;
+    margin: 0 auto;
+
+    .input-form {
+        input[type="text"] {
+            width: 80%;
+            @include box-style(0.7rem 1rem, 0 0.3rem);
+            transition: $transition;
+            &:focus {
+                outline: none !important;
+                box-shadow: 0 0 10px $primary-color;
+                border-color: $primary-color;
                 transition: $transition;
-                &:focus {
-                    outline: none !important;
-                    box-shadow: 0 0 10px $primary-color;
-                    border-color: $primary-color;
-                    transition: $transition;
-                }
-            }
-            .btn {
-                @include box-style(0.7rem 1rem, 0 0.3rem);
-                text-transform: uppercase;
-                font-weight: bold;
-                background-color: $primary-color;
-
-                @include scale-on-hover();
-
-                &:hover {
-                    @include bg-color-hover-transition();
-                    cursor: pointer;
-                }
             }
         }
-
-        .to-do-list {
-            list-style-type: none; // remove bullet
-            padding-left: 0;
-        }
-
-        .dragging {
-            opacity: 0.5;
-    
-        }
-
-        .item {
-            @include box-style(0.5rem 1rem, 0 0.3rem, 1px);
-            margin-top: 0.5rem;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-transform: capitalize;
+        .btn {
+            @include box-style(0.7rem 1rem, 0 0.3rem);
+            text-transform: uppercase;
+            font-weight: bold;
             background-color: $primary-color;
 
-            .cross {
-                height: 25px;
-                width: 25px;
-            }
+            @include scale-on-hover();
 
             &:hover {
                 @include bg-color-hover-transition();
-                .cross {
-                    height: 25px;
-                    width: 25px;
-                    border-radius: 5px;
-                    position: relative;
-                    cursor: pointer;
+                cursor: pointer;
+            }
+        }
+    }
 
-                    @include scale-on-hover();
+    .to-do-list {
+        list-style-type: none; // remove bullet
+        padding-left: 0;
+    }
 
-                    &::after,
-                    &::before {
-                        position: absolute;
-                        top: 3px;
-                        right: 10px;
-                        height: 80%;
-                        width: 0.2rem;
-                        background-color: #000;
-                        content: "";
-                    }
+    .dragging {
+        opacity: 0.5;
+    }
 
-                    &::after {
-                        transform: rotate(45deg);
-                    }
+    .item {
+        @include box-style(0.5rem 1rem, 0 0.3rem, 1px);
+        margin-top: 0.5rem;
 
-                    &::before {
-                        transform: rotate(-45deg);
-                    }
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-transform: capitalize;
+        background-color: $primary-color;
+
+        .cross {
+            height: 25px;
+            width: 25px;
+        }
+
+        &:hover {
+            @include bg-color-hover-transition();
+            .cross {
+                height: 25px;
+                width: 25px;
+                border-radius: 5px;
+                position: relative;
+                cursor: pointer;
+
+                @include scale-on-hover();
+
+                &::after,
+                &::before {
+                    position: absolute;
+                    top: 3px;
+                    right: 10px;
+                    height: 80%;
+                    width: 0.2rem;
+                    background-color: #000;
+                    content: "";
+                }
+
+                &::after {
+                    transform: rotate(45deg);
+                }
+
+                &::before {
+                    transform: rotate(-45deg);
                 }
             }
         }

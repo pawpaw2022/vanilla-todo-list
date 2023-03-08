@@ -11,13 +11,23 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1 class="title">Pawpaw's to-do list</h1>
-    <div class="to-do">
-      <form class="input-form">
-        <input id="input" type="text" placeholder="What to do next..." />
-        <button id="addBtn" class="btn" type="button" onclick="addItem()">add</button>
-      </form>
-      <ul id="list" class="to-do-list"></ul>
+    <div class="main">
+      <h1 class="title">Pawpaw's to-do list</h1>
+      <div class="to-do">
+        <form class="input-form">
+          <input id="input" type="text" placeholder="What to do next..." />
+          <button id="addBtn" class="btn" type="button" onclick="addItem()">
+            add
+          </button>
+        </form>
+        <ul id="list" class="to-do-list"></ul>
+      </div>
+    </div>
+
+    <div class="anchor" id="anchor">
+      <div class="left-eye eye"><div class="left-eyeball"></div></div>
+      <div class="right-eye eye"><div class="right-eyeball"></div></div>
+      <img id="simpson" src="/assets/simpson.png" alt="simpson" />
     </div>
   </body>
 </html>

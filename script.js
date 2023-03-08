@@ -69,7 +69,6 @@ const setDragging = (item) => {
 
   return item;
 };
-
 // rearrange elements
 const taskArray = document.getElementById("list");
 taskArray.addEventListener("dragover", (e) => {
@@ -102,6 +101,39 @@ const getDragAfterElement = (container, y) => {
     },
     { offset: Number.NEGATIVE_INFINITY }
   ).element;
+};
+
+// EYEBALL MOVEMENT
+document.addEventListener("mousemove", (e) => {
+  // mouse position
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+
+  // center anchor position
+  const anchor = document.getElementById("anchor");
+  const rekt = anchor.getBoundingClientRect();
+
+  const anchorX = rekt.left + rekt.width / 4;
+  const anchorY = rekt.top + rekt.height / 4;
+
+  const deg = getAngle(mouseX, mouseY, anchorX, anchorY);
+  //   console.log(deg);
+
+  const eyes = document.querySelectorAll(".eye");
+  eyes.forEach((eye) => {
+    eye.style.transform = `rotate(${deg+170}deg)`;
+    console.log(eye.style);
+  });
+});
+
+const getAngle = (mx, my, ax, ay) => {
+  const dx = mx - ax;
+  const dy = my - ay;
+
+  const rad = Math.atan2(dy, dx);
+  const deg = (rad * 180) / Math.PI;
+
+  return deg;
 };
 
 // for css purpose:
