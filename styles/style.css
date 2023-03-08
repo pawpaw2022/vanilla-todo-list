@@ -59,7 +59,10 @@ body .to-do .to-do-list {
   list-style-type: none;
   padding-left: 0;
 }
-body .to-do .to-do-list .item {
+body .to-do .dragging {
+  opacity: 0.5;
+}
+body .to-do .item {
   padding: 0.5rem 1rem;
   margin: 0 0.3rem;
   border-radius: 5px;
@@ -71,15 +74,15 @@ body .to-do .to-do-list .item {
   text-transform: capitalize;
   background-color: rgb(164, 198, 235);
 }
-body .to-do .to-do-list .item .cross {
+body .to-do .item .cross {
   height: 25px;
   width: 25px;
 }
-body .to-do .to-do-list .item:hover {
+body .to-do .item:hover {
   background-color: rgb(160, 140, 220);
   transition: background-color 300ms ease-in-out;
 }
-body .to-do .to-do-list .item:hover .cross {
+body .to-do .item:hover .cross {
   height: 25px;
   width: 25px;
   border-radius: 5px;
@@ -87,10 +90,10 @@ body .to-do .to-do-list .item:hover .cross {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-body .to-do .to-do-list .item:hover .cross:hover {
+body .to-do .item:hover .cross:hover {
   transform: scale(1.1);
 }
-body .to-do .to-do-list .item:hover .cross::after, body .to-do .to-do-list .item:hover .cross::before {
+body .to-do .item:hover .cross::after, body .to-do .item:hover .cross::before {
   position: absolute;
   top: 3px;
   right: 10px;
@@ -99,9 +102,9 @@ body .to-do .to-do-list .item:hover .cross::after, body .to-do .to-do-list .item
   background-color: #000;
   content: "";
 }
-body .to-do .to-do-list .item:hover .cross::after {
+body .to-do .item:hover .cross::after {
   transform: rotate(45deg);
 }
-body .to-do .to-do-list .item:hover .cross::before {
+body .to-do .item:hover .cross::before {
   transform: rotate(-45deg);
 }/*# sourceMappingURL=style.css.map */
