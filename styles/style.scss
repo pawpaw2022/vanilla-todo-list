@@ -116,7 +116,7 @@ body {
 .to-do {
     margin: 0 auto;
     min-width: 400px;
-    
+    max-width: 50%;
     .input-form {
         display: flex;
         input[type="text"] {
