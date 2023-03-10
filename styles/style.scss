@@ -43,7 +43,7 @@ body {
 }
 .main {
     @include item-center(column);
-    margin: 1rem 2rem;
+    margin: 1rem 0rem;
 }
 
 .anchor {
@@ -114,10 +114,11 @@ body {
 }
 
 .to-do {
-    width: 500px;
     margin: 0 auto;
-
+    min-width: 400px;
+    
     .input-form {
+        display: flex;
         input[type="text"] {
             width: 80%;
             @include box-style(0.7rem 1rem, 0 0.3rem);
@@ -130,6 +131,7 @@ body {
             }
         }
         .btn {
+
             @include box-style(0.7rem 1rem, 0 0.3rem);
             text-transform: uppercase;
             font-weight: bold;
